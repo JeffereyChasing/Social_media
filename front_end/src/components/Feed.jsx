@@ -4,6 +4,7 @@ import {client} from '../client'
 import MasonryLayout from './MasonryLayout';
 import Spinner from './Spinner';
 import { feedQuery, searchQuery } from '../utils/data';
+import nothing from '../assets/nothing.webp';
 
 
 
@@ -36,9 +37,11 @@ const Feed = () => {
 
   if(loading) return <Spinner message = "we are adding new ideas to your feed!"/>
 
-
-  
+  if(!pins?.length) return <img src={nothing}/>
   return (
+
+    
+
     <div>
         {pins && <MasonryLayout pins={pins}/>}
     </div>
